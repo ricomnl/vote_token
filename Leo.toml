@@ -1,0 +1,8 @@
+[project]
+name = "vtoken"
+version = "0.1.0"
+description = "The token package"
+license = "MIT"
+
+[remote]
+author = "rmeinl"
