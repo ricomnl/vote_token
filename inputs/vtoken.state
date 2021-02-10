@@ -1,9 +1,7 @@
-// The program state for token/src/main.leo
 [[public]]
 
 [state]
 leaf_index: u32 = 0;
-//leaf_index: u32 = 2;
 root: [u8; 32] = [0; 32];
 
 [[private]]
