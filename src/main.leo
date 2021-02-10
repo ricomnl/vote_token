@@ -10,29 +10,25 @@ function main(input) -> (u8, u8) {
 
     const token = Token::new(debit_id, credit_id);
 
-    // let (id_t, vb_t): (u8, u8) = token.debit(token_id,
-    //                                         value_balance_old,    
-    //                                         payload,
-    //                                         debit_id,
-    //                                         credit_id,
-    //                                         global_index);
+    let (id_d, vb_d): (u8, u8) = token.debit(token_id,
+                                            value_balance_old,    
+                                            payload,
+                                            debit_id,
+                                            credit_id,
+                                            global_index);
 
-    // console.log("test: {}", (id_t, vb_t));
+    console.log("debit: {}", (id_d, vb_d));
 
-    // let out_c = token.credit(token_id,
-    //                         value_balance_old,    
-    //                         payload,
-    //                         credit_id,
-    //                         global_index);
+    // let (id_c, vb_c): (u8, u8) = token.credit(token_id,
+    //                                             value_balance_old,    
+    //                                             payload,
+    //                                             credit_id,
+    //                                             global_index);
 
-    // console.log("{}", out_c);
+    // console.log("credit: {}", (id_c, vb_c));
 
-    return token.debit(token_id,
-                        value_balance_old,    
-                        payload,
-                        debit_id,
-                        credit_id,
-                        global_index)
+    return (id_d, vb_d)
+    // return (id_c, vb_c)
 }
 
 // @test

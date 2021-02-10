@@ -78,10 +78,12 @@ circuit Token {
         // 6. Credit the funds if checks pass
         let passed = condition1 && condition2 && condition3 && condition4;
 
-        if passed {
-            return (token_id, value_balance_new)
-        } else {
-            return (token_id, value_balance_old)
-        }         
+        // if passed {
+        //     return (token_id, value_balance_new)
+        // } else {
+        //     return (token_id, value_balance_old)
+        // }       
+        let vb_final = if passed? value_balance_new : value_balance_old;
+        return (token_id, vb_final)  
     }
 }
