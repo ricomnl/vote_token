@@ -9,7 +9,7 @@ circuit Token {
         }
     }
 
-    function debit(self,
+    function debit(self, 
                    token_id: u8, 
                    value_balance_old: u8,
                    payload: [u8; 32],
@@ -41,11 +41,13 @@ circuit Token {
         // 7. Debit the funds if checks pass
         let passed = condition1 && condition2 && condition3 && condition4 && condition5;
 
-        if passed {
-            return (token_id, value_balance_new)
-        } else {
-            return (token_id, value_balance_old)
-        }         
+        // if passed {
+        //     return (token_id, value_balance_new)
+        // } else {
+        //     return (token_id, value_balance_old)
+        // }    
+        let vb_final = if passed? value_balance_new : value_balance_old;
+        return (token_id, vb_final)
     }
 
     function credit(self,
@@ -64,7 +66,7 @@ circuit Token {
 
         // 3. Subtract payload value form register value balance
         let value_balance_payload: u8 = payload[1];
-        let value_balance_new = value_balance_old - value_balance_payload;
+        let mut value_balance_new = value_balance_old - value_balance_payload;
         
         // 4. Check that no money is created
         let condition3 = value_balance_new <= value_balance_old;
