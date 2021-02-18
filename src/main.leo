@@ -52,7 +52,7 @@ function test_token_debit(input) {
 
     let token = Token::new(debit_id, credit_id);
 
-    let (id_t, vb_t) = token.debit(token_id,
+    let (id_t, vb_t) = token.debit(input, token_id,
                                     value_balance_old,    
                                     payload,
                                     debit_id,

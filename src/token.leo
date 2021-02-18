@@ -10,6 +10,7 @@ circuit Token {
     }
 
     function debit(self, 
+                   input: circuit,
                    token_id: u8, 
                    value_balance_old: u8,
                    payload: [u8; 32],
